@@ -1,0 +1,12 @@
+image: openjdk:8-jdk
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - ./gradlew check
+
+after_script:
+  - echo "End"
