@@ -1,4 +1,4 @@
-package com.ifazakas.mybookshelfapi;
+package com.ifazakas.mybookshelfapi.infrastructure.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -26,3 +26,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+
+springBoot {
+	mainClass = "com.ifazakas.mybookshelfapi.infrastructure.springboot.Application"
+}
