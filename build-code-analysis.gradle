@@ -1,0 +1,13 @@
+apply plugin: 'pmd'
+apply plugin: 'findbugs'
+apply plugin: 'checkstyle'
+apply plugin: 'jacoco'
+
+checkstyle {
+    toolVersion = "7.6"
+    configFile = file("${rootProject.projectDir}/code_analysis/checkstyle/checkstyle.xml")
+}
+
+pmd {
+    consoleOutput = true
+}

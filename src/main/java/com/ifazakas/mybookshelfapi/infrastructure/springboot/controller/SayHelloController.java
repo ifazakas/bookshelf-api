@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/hello")
 public class SayHelloController {
 
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    public SayHelloHttpResponseBody sayHello(@PathVariable(value = "name") String name) {
-        return new SayHelloHttpResponseBody("Hi there " + name);
-    }
+  @RequestMapping(value = "/{name}", method = RequestMethod.GET)
+  public SayHelloHttpResponseBody sayHello(@PathVariable(value = "name") final String name) {
+    return new SayHelloHttpResponseBody("Hi there " + name);
+  }
 
 }
 
