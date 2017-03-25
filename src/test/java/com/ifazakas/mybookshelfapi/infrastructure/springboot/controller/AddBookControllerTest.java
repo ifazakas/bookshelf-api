@@ -9,10 +9,11 @@ import static org.hamcrest.Matchers.isA;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class AddBookControllerTest extends ControllerTestBase{
+public class AddBookControllerTest extends ControllerTestBase {
   private static final String BOOKS_ENDPOINT = "/books";
 
   @Test
+  @SuppressWarnings("checkstyle:magicnumber")
   public void shouldAddABook() throws Exception {
     MockHttpServletRequestBuilder request = createPostRequest(
         BOOKS_ENDPOINT,
@@ -22,7 +23,7 @@ public class AddBookControllerTest extends ControllerTestBase{
         .perform(request)
         .andExpect(status().isCreated())
         .andExpect(jsonPath("$.id", isA(String.class)))
-        .andExpect(jsonPath("$.author", is("Marting Fowler")))
+        .andExpect(jsonPath("$.author", is("Martin Fowler")))
         .andExpect(jsonPath("$.title", is("Refactoring")))
         .andExpect(jsonPath("$.publication_year", is(1999)));
   }
