@@ -2,13 +2,13 @@ package com.ifazakas.mybookshelfapi.domain;
 
 import java.util.UUID;
 
-public class Book {
+public class Volume {
   private final String id;
-  private final String author;
-  private final String title;
-  private final int publicationYear;
+  private final Author author;
+  private final Title title;
+  private final PublicationYear publicationYear;
 
-  public Book(final String author, final String title, final int publicationYear) {
+  public Volume(final Author author, final Title title, final PublicationYear publicationYear) {
     this.id = UUID.randomUUID().toString();
     this.author = author;
     this.title = title;
@@ -19,15 +19,15 @@ public class Book {
     return id;
   }
 
-  public String getAuthor() {
+  public Author getAuthor() {
     return author;
   }
 
-  public String getTitle() {
+  public Title getTitle() {
     return title;
   }
 
-  public int getPublicationYear() {
+  public PublicationYear getPublicationYear() {
     return publicationYear;
   }
 }

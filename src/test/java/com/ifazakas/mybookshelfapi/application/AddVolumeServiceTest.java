@@ -1,27 +1,27 @@
 package com.ifazakas.mybookshelfapi.application;
 
-import com.ifazakas.mybookshelfapi.domain.Book;
+import com.ifazakas.mybookshelfapi.domain.Volume;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AddBookServiceTest {
-  private AddBookService addBookService;
+public class AddVolumeServiceTest {
+  private AddVolumeService addVolumeService;
 
   @Before
   public void setUp() throws Exception {
-    addBookService = new AddBookService();
+    addVolumeService = new AddVolumeService();
   }
 
   @Test
   @SuppressWarnings("checkstyle:magicnumber")
   public void shouldAddABook() throws Exception {
     //when
-    Book actualBook = addBookService.addBook("Martin Fowler", "Refactoring", 1999);
+    Volume actualVolume = addVolumeService.addVolume("Martin Fowler", "Refactoring", 1999);
 
     //then
-    assertThat(actualBook).isNotNull();
+    assertThat(actualVolume).isNotNull();
 
   }
 }

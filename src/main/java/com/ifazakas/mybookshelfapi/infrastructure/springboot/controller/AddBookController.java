@@ -1,7 +1,7 @@
 package com.ifazakas.mybookshelfapi.infrastructure.springboot.controller;
 
-import com.ifazakas.mybookshelfapi.application.AddBookService;
-import com.ifazakas.mybookshelfapi.domain.Book;
+import com.ifazakas.mybookshelfapi.application.AddVolumeService;
+import com.ifazakas.mybookshelfapi.domain.Volume;
 import com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.httprequestbody.AddBookHttpRequestBody;
 import com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.httpresponsebody.AddBookHttpResponseBody;
 import org.springframework.http.HttpStatus;
@@ -15,23 +15,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/books")
 public class AddBookController {
 
-  private final AddBookService addBookService;
+  private final AddVolumeService addVolumeService;
 
-  public AddBookController(final AddBookService addBookService) {
-    this.addBookService = addBookService;
+  public AddBookController(final AddVolumeService addVolumeService) {
+    this.addVolumeService = addVolumeService;
   }
 
   @RequestMapping(value = "", method = RequestMethod.POST)
   public ResponseEntity<AddBookHttpResponseBody> addBook(@RequestBody final AddBookHttpRequestBody httpRequestBody) {
 
-    Book book = addBookService.addBook(
+    Volume volume = addVolumeService.addVolume(
         httpRequestBody.getAuthor(),
         httpRequestBody.getTitle(),
         httpRequestBody.getPublicationYear()
     );
 
     return ResponseEntity.status(HttpStatus.CREATED)
-        .body(AddBookHttpResponseBody.createFrom(book));
+        .body(AddBookHttpResponseBody.createFrom(volume));
   }
 
 }

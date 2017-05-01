@@ -1,6 +1,6 @@
 package com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.httpresponsebody;
 
-import com.ifazakas.mybookshelfapi.domain.Book;
+import com.ifazakas.mybookshelfapi.domain.Volume;
 
 public class AddBookHttpResponseBody {
   private final String id;
@@ -36,12 +36,12 @@ public class AddBookHttpResponseBody {
     return publicationYear;
   }
 
-  public static AddBookHttpResponseBody createFrom(final Book book) {
+  public static AddBookHttpResponseBody createFrom(final Volume volume) {
     return new AddBookHttpResponseBody(
-        book.getId(),
-        book.getAuthor(),
-        book.getTitle(),
-        book.getPublicationYear()
+        volume.getId(),
+        volume.getAuthor().getName(),
+        volume.getTitle().getValue(),
+        volume.getPublicationYear().getValue()
     );
   }
 }

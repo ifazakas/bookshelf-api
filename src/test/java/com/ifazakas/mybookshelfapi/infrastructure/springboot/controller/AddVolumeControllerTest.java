@@ -9,7 +9,7 @@ import static org.hamcrest.Matchers.isA;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class AddBookControllerTest extends ControllerTestBase {
+public class AddVolumeControllerTest extends ControllerTestBase {
   private static final String BOOKS_ENDPOINT = "/books";
 
   @Test
