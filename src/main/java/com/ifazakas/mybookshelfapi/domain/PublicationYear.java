@@ -1,10 +1,28 @@
 package com.ifazakas.mybookshelfapi.domain;
 
+import com.ifazakas.mybookshelfapi.domain.exceptions.PublicationYearCannotBeInTheFutureException;
+import com.ifazakas.mybookshelfapi.domain.exceptions.PublicationYearCannotBeNegativeException;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 public class PublicationYear {
   private final int value;
 
   public PublicationYear(int value) {
+    validate(value);
     this.value = value;
+  }
+
+  private void validate(int value) {
+    if (value < 0) {
+      throw new PublicationYearCannotBeNegativeException("Negative value given");
+    }
+
+    if (value > LocalDate.now().getYear()) {
+      throw new PublicationYearCannotBeInTheFutureException("Given value is in the future");
+    }
   }
 
   public int getValue() {
