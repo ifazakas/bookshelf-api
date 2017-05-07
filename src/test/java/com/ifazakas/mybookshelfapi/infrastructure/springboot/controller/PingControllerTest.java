@@ -8,18 +8,18 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class SayHelloControllerTest extends ControllerTestBase {
+public class PingControllerTest extends ControllerTestBase {
 
   @Test
-  public void shouldSayHello() throws Exception {
+  public void shouldPerformAPing() throws Exception {
 
     server()
         .perform(
-            get("/hello/Rocky")
+            get("/ping")
                 .accept(MEDIA_TYPE)
                 .contentType(MEDIA_TYPE)
         )
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.message", is("Hi there Rocky")));
+        .andExpect(jsonPath("$.message", is("I'm here!")));
   }
 }

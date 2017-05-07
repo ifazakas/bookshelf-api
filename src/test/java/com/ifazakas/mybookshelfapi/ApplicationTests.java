@@ -2,7 +2,7 @@ package com.ifazakas.mybookshelfapi;
 
 import com.ifazakas.mybookshelfapi.infrastructure.springboot.Application;
 import com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.AddBookController;
-import com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.SayHelloController;
+import com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.PingController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +16,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ApplicationTests {
 
   @Autowired
-  private SayHelloController sayHelloController;
+  private PingController pingController;
   @Autowired
   private AddBookController addBookController;
 
   @Test
   public void contextLoads() {
-    assertThat(sayHelloController).isNotNull();
+    assertThat(pingController).isNotNull();
     assertThat(addBookController).isNotNull();
   }
 

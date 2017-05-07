@@ -1,9 +1,9 @@
 package com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.httpresponsebody;
 
-public class SayHelloHttpResponseBody {
+public class PingHttpResponseBody {
   private final String message;
 
-  public SayHelloHttpResponseBody(final String message) {
+  public PingHttpResponseBody(final String message) {
     this.message = message;
   }
 
