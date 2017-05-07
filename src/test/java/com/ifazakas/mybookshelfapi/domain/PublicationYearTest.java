@@ -29,4 +29,15 @@ public class PublicationYearTest {
   public void shouldThrowPublicationYearCannotBeInTheFutureException() throws Exception {
     new PublicationYear(LocalDate.now().getYear() + 1);
   }
+
+  @Test
+  public void shouldIdenticalToAnotherPublicationYearWithTheSameValue() throws Exception {
+    PublicationYear aPublicationYear = new PublicationYear (A_VALID_PUBPLICATION_YEAR);
+    PublicationYear anotherPublicationYear = new PublicationYear (A_VALID_PUBPLICATION_YEAR);
+
+    assertThat(aPublicationYear.equals(anotherPublicationYear)).isTrue();
+    assertThat(aPublicationYear.hashCode()).isEqualTo(anotherPublicationYear.hashCode());
+
+    assertThat(aPublicationYear.equals(new PublicationYear(2000))).isFalse();
+  }
 }

@@ -1,5 +1,6 @@
 package com.ifazakas.mybookshelfapi.domain;
 
+import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentNullException;
 import com.ifazakas.mybookshelfapi.domain.exceptions.TitleNotAlphanumeric;
 import com.ifazakas.mybookshelfapi.domain.exceptions.TitleTooLongException;
 
@@ -10,11 +11,14 @@ public class Title {
 
   public Title(String value) {
     validate(value);
-
     this.value = value;
   }
 
   private void validate(String value) {
+    if (value == null) {
+      throw new ArgumentNullException("Title must have a value");
+    }
+
     if (value.length() > MAX_TITLE_LENGTH) {
       throw new TitleTooLongException("Title cannot exceed " + MAX_TITLE_LENGTH + "characters");
     }
