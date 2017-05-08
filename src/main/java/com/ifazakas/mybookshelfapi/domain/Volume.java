@@ -19,11 +19,11 @@ public class Volume {
     this.publicationYear = publicationYear;
   }
 
-  private void validate(final Author author, final Title title) {
-    if (author == null) {
+  private void validate(final Author authorValue, final Title titleValue) {
+    if (authorValue == null) {
       throw new ArgumentNullException("Missing author");
     }
-    if (title == null) {
+    if (titleValue == null) {
       throw new ArgumentNullException("Missing title");
     }
   }
@@ -46,7 +46,7 @@ public class Volume {
 
   @Override
   @SuppressWarnings("checkstyle:avoidinlineconditionals")
-  public boolean equals(Object o) {
+  public boolean equals(final Object o) {
     if (this == o) {
       return true;
     }

@@ -2,10 +2,10 @@ package com.ifazakas.mybookshelfapi.domain;
 
 import java.util.UUID;
 
-public class VolumeId {
+public final class VolumeId {
   private final UUID id;
 
-  private VolumeId(UUID id) {
+  private VolumeId(final UUID id) {
     this.id = id;
   }
 
@@ -13,7 +13,7 @@ public class VolumeId {
     return new VolumeId(UUID.randomUUID());
   }
 
-  public static VolumeId wakeUp(String uuidValue) {
+  public static VolumeId wakeUp(final String uuidValue) {
     return new VolumeId(UUID.fromString(uuidValue));
   }
 
@@ -23,7 +23,7 @@ public class VolumeId {
 
   @Override
   @SuppressWarnings("checkstyle:avoidinlineconditionals")
-  public boolean equals(Object o) {
+  public boolean equals(final Object o) {
     if (this == o) {
       return true;
     }
