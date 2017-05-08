@@ -6,7 +6,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class Volume {
-  private final String id;
+  private final VolumeId id;
   private final Author author;
   private final Title title;
   private final PublicationYear publicationYear;
@@ -14,7 +14,7 @@ public class Volume {
   public Volume(final Author author, final Title title, final PublicationYear publicationYear) {
     validate(author, title);
 
-    this.id = UUID.randomUUID().toString();
+    this.id = VolumeId.createId();
     this.author = author;
     this.title = title;
     this.publicationYear = publicationYear;
@@ -29,7 +29,7 @@ public class Volume {
     }
   }
 
-  public String getId() {
+  public VolumeId getId() {
     return id;
   }
 
