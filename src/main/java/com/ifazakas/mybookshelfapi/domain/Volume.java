@@ -3,7 +3,6 @@ package com.ifazakas.mybookshelfapi.domain;
 import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentNullException;
 
 import java.util.Optional;
-import java.util.UUID;
 
 public class Volume {
   private final VolumeId id;
@@ -43,5 +42,27 @@ public class Volume {
 
   public Optional<PublicationYear> getPublicationYear() {
     return Optional.ofNullable(publicationYear);
+  }
+
+  @Override
+  @SuppressWarnings("checkstyle:avoidinlineconditionals")
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+
+    Volume volume = (Volume) o;
+
+    return id != null ? id.equals(volume.id) : volume.id == null;
+
+  }
+
+  @Override
+  @SuppressWarnings("checkstyle:avoidinlineconditionals")
+  public int hashCode() {
+    return id != null ? id.hashCode() : 0;
   }
 }
