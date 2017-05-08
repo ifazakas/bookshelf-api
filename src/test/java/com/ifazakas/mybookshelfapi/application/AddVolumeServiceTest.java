@@ -7,6 +7,7 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AddVolumeServiceTest {
+  private static final int PUBLICATION_YEAR_OF_REFACTORING = 1999;
   private AddVolumeService addVolumeService;
 
   @Before
@@ -15,10 +16,13 @@ public class AddVolumeServiceTest {
   }
 
   @Test
-  @SuppressWarnings("checkstyle:magicnumber")
   public void shouldAddABook() throws Exception {
     //when
-    Volume actualVolume = addVolumeService.addVolume("Martin Fowler", "Refactoring", 1999);
+    Volume actualVolume = addVolumeService.addVolume(
+        "Martin Fowler",
+        "Refactoring",
+        PUBLICATION_YEAR_OF_REFACTORING
+    );
 
     //then
     assertThat(actualVolume).isNotNull();

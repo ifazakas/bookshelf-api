@@ -1,5 +1,8 @@
 package com.ifazakas.mybookshelfapi.domain;
 
+import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentNullException;
+
+import java.util.Optional;
 import java.util.UUID;
 
 public class Volume {
@@ -9,10 +12,21 @@ public class Volume {
   private final PublicationYear publicationYear;
 
   public Volume(final Author author, final Title title, final PublicationYear publicationYear) {
+    validate(author, title);
+
     this.id = UUID.randomUUID().toString();
     this.author = author;
     this.title = title;
     this.publicationYear = publicationYear;
+  }
+
+  private void validate(final Author author, final Title title) {
+    if (author == null) {
+      throw new ArgumentNullException("Missing author");
+    }
+    if (title == null) {
+      throw new ArgumentNullException("Missing title");
+    }
   }
 
   public String getId() {
@@ -27,7 +41,7 @@ public class Volume {
     return title;
   }
 
-  public PublicationYear getPublicationYear() {
-    return publicationYear;
+  public Optional<PublicationYear> getPublicationYear() {
+    return Optional.ofNullable(publicationYear);
   }
 }

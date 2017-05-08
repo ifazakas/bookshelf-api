@@ -41,7 +41,7 @@ public class AddBookHttpResponseBody {
         volume.getId(),
         volume.getAuthor().getName(),
         volume.getTitle().getValue(),
-        volume.getPublicationYear().getValue()
+        volume.getPublicationYear().get().getValue()
     );
   }
 }
