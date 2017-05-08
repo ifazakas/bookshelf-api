@@ -1,7 +1,7 @@
 package com.ifazakas.mybookshelfapi.domain.exceptions;
 
 public class AuthorNameTooLongException extends RuntimeException {
-  public AuthorNameTooLongException(String message) {
+  public AuthorNameTooLongException(final String message) {
     super(message);
   }
 }

@@ -41,8 +41,8 @@ public class AuthorTest {
 
   @Test
   public void shouldBeIdenticalToAnotherAuthorWithTheSameName() throws Exception {
-    Author anAuthor = new Author (A_VALID_AUTHOR_NAME);
-    Author anotherAuthor = new Author (A_VALID_AUTHOR_NAME);
+    Author anAuthor = new Author(A_VALID_AUTHOR_NAME);
+    Author anotherAuthor = new Author(A_VALID_AUTHOR_NAME);
 
     assertThat(anAuthor.equals(anotherAuthor)).isTrue();
     assertThat(anAuthor.hashCode()).isEqualTo(anotherAuthor.hashCode());

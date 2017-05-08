@@ -26,9 +26,9 @@ public class TitleTest {
   @Test(expected = TitleTooLongException.class)
   public void shouldThrowTitleTooLongException() throws Exception {
     new Title(
-        "To Kill a Mockingbird To Kill a Mockingbird To Kill a Mockingbird" +
-        "To Kill a Mockingbird To Kill a Mockingbird To Kill a Mockingbird" +
         "To Kill a Mockingbird To Kill a Mockingbird To Kill a Mockingbird"
+        + "To Kill a Mockingbird To Kill a Mockingbird To Kill a Mockingbird"
+        + "To Kill a Mockingbird To Kill a Mockingbird To Kill a Mockingbird"
     );
   }
 
@@ -39,8 +39,8 @@ public class TitleTest {
 
   @Test
   public void shouldBeIdenticalToAnotherTitleWithTheSameValue() throws Exception {
-    Title aTitle = new Title (A_VALID_TITLE);
-    Title anotherTitle = new Title (A_VALID_TITLE);
+    Title aTitle = new Title(A_VALID_TITLE);
+    Title anotherTitle = new Title(A_VALID_TITLE);
 
     assertThat(aTitle.equals(anotherTitle)).isTrue();
     assertThat(aTitle.hashCode()).isEqualTo(anotherTitle.hashCode());

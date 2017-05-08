@@ -1,7 +1,7 @@
 package com.ifazakas.mybookshelfapi.domain.exceptions;
 
 public class AuthorNameNotAlphabetic extends RuntimeException {
-  public AuthorNameNotAlphabetic(String message) {
+  public AuthorNameNotAlphabetic(final String message) {
     super(message);
   }
 }

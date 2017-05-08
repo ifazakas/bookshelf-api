@@ -10,33 +10,33 @@ public class Author {
   private static final int MAX_NAME_LENGTH = 50;
   private final String name;
 
-  public Author(String name) {
-    validate(name);
-    this.name = name;
+  public Author(final String nameValue) {
+    validate(nameValue);
+    this.name = nameValue;
   }
 
-  private void validate(String name) {
-    if (name == null) {
+  private void validate(final String nameValue) {
+    if (nameValue == null) {
       throw new ArgumentNullException("Author name must have a value");
     }
 
-    if (name.length() > MAX_NAME_LENGTH) {
+    if (nameValue.length() > MAX_NAME_LENGTH) {
       throw new AuthorNameTooLongException("Length cannot exceed " + MAX_NAME_LENGTH + " characters");
     }
-    if (name.length() < MIN_NAME_LENGTH) {
+    if (nameValue.length() < MIN_NAME_LENGTH) {
       throw new AuthorNameTooShortException("Length cannot be less than " + MIN_NAME_LENGTH + " characters");
 
     }
-    if (!containsOnlyLettersAndSpace(name)) {
+    if (!containsOnlyLettersAndSpace(nameValue)) {
       throw new AuthorNameNotAlphabetic("Author name should contain only letters and space");
     }
   }
 
-  private boolean containsOnlyLettersAndSpace(String name) {
-    return name.chars().allMatch(this::isLetterOrSpace);
+  private boolean containsOnlyLettersAndSpace(final String nameValue) {
+    return nameValue.chars().allMatch(this::isLetterOrSpace);
   }
 
-  private boolean isLetterOrSpace(int aChar) {
+  private boolean isLetterOrSpace(final int aChar) {
     return Character.isLetter(aChar) || Character.isSpaceChar(aChar);
   }
 
@@ -45,9 +45,14 @@ public class Author {
   }
 
   @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+  @SuppressWarnings("checkstyle:avoidinlineconditionals")
+  public boolean equals(final Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
 
     Author author = (Author) o;
 
@@ -56,6 +61,7 @@ public class Author {
   }
 
   @Override
+  @SuppressWarnings("checkstyle:avoidinlineconditionals")
   public int hashCode() {
     return name != null ? name.hashCode() : 0;
   }

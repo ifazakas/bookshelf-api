@@ -9,30 +9,30 @@ public class Title {
 
   private final String value;
 
-  public Title(String value) {
-    validate(value);
-    this.value = value;
+  public Title(final String titleValue) {
+    validate(titleValue);
+    this.value = titleValue;
   }
 
-  private void validate(String value) {
-    if (value == null) {
+  private void validate(final String titleValue) {
+    if (titleValue == null) {
       throw new ArgumentNullException("Title must have a value");
     }
 
-    if (value.length() > MAX_TITLE_LENGTH) {
+    if (titleValue.length() > MAX_TITLE_LENGTH) {
       throw new TitleTooLongException("Title cannot exceed " + MAX_TITLE_LENGTH + "characters");
     }
-    if (!containsOnlyLettersDigitsOrSpace(value)) {
+    if (!containsOnlyLettersDigitsOrSpace(titleValue)) {
       throw new TitleNotAlphanumeric("Title name should contain only letters, digits or space");
     }
   }
 
-  private boolean containsOnlyLettersDigitsOrSpace(String value) {
-    return value.chars().allMatch(this::isLetterDigitOrSpace);
+  private boolean containsOnlyLettersDigitsOrSpace(final String titleValue) {
+    return titleValue.chars().allMatch(this::isLetterDigitOrSpace);
   }
 
-  private boolean isLetterDigitOrSpace(int aChar) {
-    return Character.isLetterOrDigit(aChar) || Character.isSpaceChar(aChar) ;
+  private boolean isLetterDigitOrSpace(final int aChar) {
+    return Character.isLetterOrDigit(aChar) || Character.isSpaceChar(aChar);
   }
 
   public String getValue() {
@@ -40,9 +40,14 @@ public class Title {
   }
 
   @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+  @SuppressWarnings("checkstyle:avoidinlineconditionals")
+  public boolean equals(final Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
 
     Title title = (Title) o;
 
@@ -51,6 +56,7 @@ public class Title {
   }
 
   @Override
+  @SuppressWarnings("checkstyle:avoidinlineconditionals")
   public int hashCode() {
     return value != null ? value.hashCode() : 0;
   }

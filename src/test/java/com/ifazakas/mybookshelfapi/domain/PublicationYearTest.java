@@ -5,24 +5,24 @@ import com.ifazakas.mybookshelfapi.domain.exceptions.PublicationYearCannotBeNega
 import org.junit.Test;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PublicationYearTest {
-  private static final int A_VALID_PUBPLICATION_YEAR = 1999;
+  private static final int A_VALID_PUBLICATION_YEAR = 1999;
+  private static final int ANOTHER_VALID_PUBLICATION_YEAR = 2000;
+  private static final int NEGATIVE_VALUED_PUBLICATION_YEAR = -1000;
 
   @Test
   public void shouldCreateAPublicationYear() throws Exception {
-    PublicationYear aPublicationYear = new PublicationYear(A_VALID_PUBPLICATION_YEAR);
+    PublicationYear aPublicationYear = new PublicationYear(A_VALID_PUBLICATION_YEAR);
 
-    assertThat(aPublicationYear.getValue()).isEqualTo(A_VALID_PUBPLICATION_YEAR);
+    assertThat(aPublicationYear.getValue()).isEqualTo(A_VALID_PUBLICATION_YEAR);
   }
 
   @Test(expected = PublicationYearCannotBeNegativeException.class)
   public void shouldThrowPulicationYearCannotBeNegativeException() throws Exception {
-    new PublicationYear(-1000);
+    new PublicationYear(NEGATIVE_VALUED_PUBLICATION_YEAR);
   }
 
   @Test(expected = PublicationYearCannotBeInTheFutureException.class)
@@ -31,13 +31,13 @@ public class PublicationYearTest {
   }
 
   @Test
-  public void shouldIdenticalToAnotherPublicationYearWithTheSameValue() throws Exception {
-    PublicationYear aPublicationYear = new PublicationYear (A_VALID_PUBPLICATION_YEAR);
-    PublicationYear anotherPublicationYear = new PublicationYear (A_VALID_PUBPLICATION_YEAR);
+  public void shouldBeIdenticalToAnotherPublicationYearWithTheSameValue() throws Exception {
+    PublicationYear aPublicationYear = new PublicationYear(A_VALID_PUBLICATION_YEAR);
+    PublicationYear anotherPublicationYear = new PublicationYear(A_VALID_PUBLICATION_YEAR);
 
     assertThat(aPublicationYear.equals(anotherPublicationYear)).isTrue();
     assertThat(aPublicationYear.hashCode()).isEqualTo(anotherPublicationYear.hashCode());
 
-    assertThat(aPublicationYear.equals(new PublicationYear(2000))).isFalse();
+    assertThat(aPublicationYear.equals(new PublicationYear(ANOTHER_VALID_PUBLICATION_YEAR))).isFalse();
   }
 }

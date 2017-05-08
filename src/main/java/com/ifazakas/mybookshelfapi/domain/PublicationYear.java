@@ -8,17 +8,17 @@ import java.time.LocalDate;
 public class PublicationYear {
   private final int value;
 
-  public PublicationYear(int value) {
-    validate(value);
-    this.value = value;
+  public PublicationYear(final int yearValue) {
+    validate(yearValue);
+    this.value = yearValue;
   }
 
-  private void validate(int value) {
-    if (value < 0) {
+  private void validate(final int yearValue) {
+    if (yearValue < 0) {
       throw new PublicationYearCannotBeNegativeException("Negative value given");
     }
 
-    if (value > LocalDate.now().getYear()) {
+    if (yearValue > LocalDate.now().getYear()) {
       throw new PublicationYearCannotBeInTheFutureException("Given value is in the future");
     }
   }
@@ -28,9 +28,14 @@ public class PublicationYear {
   }
 
   @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+  @SuppressWarnings("checkstyle:avoidinlineconditionals")
+  public boolean equals(final Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
 
     PublicationYear that = (PublicationYear) o;
 
