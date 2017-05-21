@@ -2,7 +2,6 @@ package com.ifazakas.mybookshelfapi.infrastructure.springboot.controller;
 
 import com.ifazakas.mybookshelfapi.application.AddVolumeService;
 import com.ifazakas.mybookshelfapi.domain.Volume;
-import com.ifazakas.mybookshelfapi.domain.VolumeId;
 import com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.httprequestbody.AddBookHttpRequestBody;
 import com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.httpresponsebody.AddBookHttpResponseBody;
 import org.springframework.http.HttpStatus;

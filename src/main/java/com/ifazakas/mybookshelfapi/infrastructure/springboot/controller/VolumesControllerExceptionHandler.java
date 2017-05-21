@@ -1,6 +1,12 @@
 package com.ifazakas.mybookshelfapi.infrastructure.springboot.controller;
 
-import com.ifazakas.mybookshelfapi.domain.exceptions.*;
+import com.ifazakas.mybookshelfapi.domain.exceptions.AuthorNameNotAlphabetic;
+import com.ifazakas.mybookshelfapi.domain.exceptions.AuthorNameTooLongException;
+import com.ifazakas.mybookshelfapi.domain.exceptions.AuthorNameTooShortException;
+import com.ifazakas.mybookshelfapi.domain.exceptions.PublicationYearInTheFutureException;
+import com.ifazakas.mybookshelfapi.domain.exceptions.PublicationYearNegativeException;
+import com.ifazakas.mybookshelfapi.domain.exceptions.TitleNotAlphanumeric;
+import com.ifazakas.mybookshelfapi.domain.exceptions.TitleTooLongException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
