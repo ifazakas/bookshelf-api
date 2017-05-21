@@ -1,6 +1,6 @@
 package com.ifazakas.mybookshelfapi.domain;
 
-import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentNullException;
+import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentMissingException;
 import com.ifazakas.mybookshelfapi.domain.exceptions.TitleNotAlphanumeric;
 import com.ifazakas.mybookshelfapi.domain.exceptions.TitleTooLongException;
 import org.junit.Test;
@@ -18,7 +18,7 @@ public class TitleTest {
     assertThat(aTitle.getValue()).isEqualTo(A_VALID_TITLE);
   }
 
-  @Test(expected = ArgumentNullException.class)
+  @Test(expected = ArgumentMissingException.class)
   public void shouldThrowExceptionWhenTitleValueIsNull() throws Exception {
     new Title(null);
   }

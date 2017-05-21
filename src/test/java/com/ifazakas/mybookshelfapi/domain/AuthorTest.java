@@ -1,6 +1,6 @@
 package com.ifazakas.mybookshelfapi.domain;
 
-import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentNullException;
+import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentMissingException;
 import com.ifazakas.mybookshelfapi.domain.exceptions.AuthorNameNotAlphabetic;
 import com.ifazakas.mybookshelfapi.domain.exceptions.AuthorNameTooLongException;
 import com.ifazakas.mybookshelfapi.domain.exceptions.AuthorNameTooShortException;
@@ -18,7 +18,7 @@ public class AuthorTest {
     assertThat(anAuthor.getName()).isEqualTo(A_VALID_AUTHOR_NAME);
   }
 
-  @Test(expected = ArgumentNullException.class)
+  @Test(expected = ArgumentMissingException.class)
   public void shouldThrowExceptionWhenAuthorNameIsNull() throws Exception {
     new Author(null);
   }

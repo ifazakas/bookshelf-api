@@ -1,6 +1,6 @@
 package com.ifazakas.mybookshelfapi.domain;
 
-import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentNullException;
+import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentMissingException;
 import com.ifazakas.mybookshelfapi.domain.exceptions.TitleNotAlphanumeric;
 import com.ifazakas.mybookshelfapi.domain.exceptions.TitleTooLongException;
 
@@ -16,7 +16,7 @@ public class Title {
 
   private void validate(final String titleValue) {
     if (titleValue == null) {
-      throw new ArgumentNullException("Title must have a value");
+      throw new ArgumentMissingException("Title must have a value");
     }
 
     if (titleValue.length() > MAX_TITLE_LENGTH) {

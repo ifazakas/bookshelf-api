@@ -1,6 +1,6 @@
 package com.ifazakas.mybookshelfapi.domain;
 
-import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentNullException;
+import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentMissingException;
 import org.junit.Test;
 
 import java.util.Optional;
@@ -29,7 +29,7 @@ public class VolumeTest {
 
   }
 
-  @Test(expected = ArgumentNullException.class)
+  @Test(expected = ArgumentMissingException.class)
   public void shouldThrowExceptionWhenMissingAuthor() throws Exception {
     new Volume(
         null,
@@ -38,7 +38,7 @@ public class VolumeTest {
     );
   }
 
-  @Test(expected = ArgumentNullException.class)
+  @Test(expected = ArgumentMissingException.class)
   public void shouldThrowExceptionWhenMissingTitle() throws Exception {
     new Volume(
         new Author(AUTHOR_OF_REFACTORING),

@@ -1,6 +1,6 @@
 package com.ifazakas.mybookshelfapi.domain;
 
-import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentNullException;
+import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentMissingException;
 import com.ifazakas.mybookshelfapi.domain.exceptions.AuthorNameNotAlphabetic;
 import com.ifazakas.mybookshelfapi.domain.exceptions.AuthorNameTooLongException;
 import com.ifazakas.mybookshelfapi.domain.exceptions.AuthorNameTooShortException;
@@ -17,7 +17,7 @@ public class Author {
 
   private void validate(final String nameValue) {
     if (nameValue == null) {
-      throw new ArgumentNullException("Author name must have a value");
+      throw new ArgumentMissingException("Author name must have a value");
     }
 
     if (nameValue.length() > MAX_NAME_LENGTH) {

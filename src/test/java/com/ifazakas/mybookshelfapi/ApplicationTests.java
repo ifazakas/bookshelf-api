@@ -1,7 +1,7 @@
 package com.ifazakas.mybookshelfapi;
 
 import com.ifazakas.mybookshelfapi.infrastructure.springboot.Application;
-import com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.AddVolumeController;
+import com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.VolumesController;
 import com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.PingController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,12 +18,12 @@ public class ApplicationTests {
   @Autowired
   private PingController pingController;
   @Autowired
-  private AddVolumeController addVolumeController;
+  private VolumesController volumesController;
 
   @Test
   public void contextLoads() {
     assertThat(pingController).isNotNull();
-    assertThat(addVolumeController).isNotNull();
+    assertThat(volumesController).isNotNull();
   }
 
 }

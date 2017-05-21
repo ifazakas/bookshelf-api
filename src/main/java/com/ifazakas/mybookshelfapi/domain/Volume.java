@@ -1,6 +1,6 @@
 package com.ifazakas.mybookshelfapi.domain;
 
-import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentNullException;
+import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentMissingException;
 
 import java.util.Optional;
 
@@ -21,10 +21,10 @@ public class Volume {
 
   private void validate(final Author authorValue, final Title titleValue) {
     if (authorValue == null) {
-      throw new ArgumentNullException("Missing author");
+      throw new ArgumentMissingException("Missing author");
     }
     if (titleValue == null) {
-      throw new ArgumentNullException("Missing title");
+      throw new ArgumentMissingException("Missing title");
     }
   }
 

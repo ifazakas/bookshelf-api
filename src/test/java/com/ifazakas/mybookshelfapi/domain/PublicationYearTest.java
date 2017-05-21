@@ -1,7 +1,7 @@
 package com.ifazakas.mybookshelfapi.domain;
 
-import com.ifazakas.mybookshelfapi.domain.exceptions.PublicationYearCannotBeInTheFutureException;
-import com.ifazakas.mybookshelfapi.domain.exceptions.PublicationYearCannotBeNegativeException;
+import com.ifazakas.mybookshelfapi.domain.exceptions.PublicationYearInTheFutureException;
+import com.ifazakas.mybookshelfapi.domain.exceptions.PublicationYearNegativeException;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -20,12 +20,12 @@ public class PublicationYearTest {
     assertThat(aPublicationYear.getValue()).isEqualTo(A_VALID_PUBLICATION_YEAR);
   }
 
-  @Test(expected = PublicationYearCannotBeNegativeException.class)
+  @Test(expected = PublicationYearNegativeException.class)
   public void shouldThrowPulicationYearCannotBeNegativeException() throws Exception {
     new PublicationYear(NEGATIVE_VALUED_PUBLICATION_YEAR);
   }
 
-  @Test(expected = PublicationYearCannotBeInTheFutureException.class)
+  @Test(expected = PublicationYearInTheFutureException.class)
   public void shouldThrowPublicationYearCannotBeInTheFutureException() throws Exception {
     new PublicationYear(LocalDate.now().getYear() + 1);
   }
