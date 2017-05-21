@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/books")
-public class AddBookController {
+@RequestMapping("/volumes")
+public class AddVolumeController {
 
   private final AddVolumeService addVolumeService;
 
-  public AddBookController(final AddVolumeService addVolumeService) {
+  public AddVolumeController(final AddVolumeService addVolumeService) {
     this.addVolumeService = addVolumeService;
   }
 
