@@ -2,13 +2,13 @@ package com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.httpres
 
 import com.ifazakas.mybookshelfapi.domain.Volume;
 
-public class AddBookHttpResponseBody {
+public class AddVolumeHttpResponseBody {
   private final String id;
   private final String author;
   private final String title;
   private final int publicationYear;
 
-  public AddBookHttpResponseBody(
+  public AddVolumeHttpResponseBody(
       final String id,
       final String author,
       final String title,
@@ -36,8 +36,8 @@ public class AddBookHttpResponseBody {
     return publicationYear;
   }
 
-  public static AddBookHttpResponseBody createFrom(final Volume volume) {
-    return new AddBookHttpResponseBody(
+  public static AddVolumeHttpResponseBody createFrom(final Volume volume) {
+    return new AddVolumeHttpResponseBody(
         volume.getId().getValue(),
         volume.getAuthor().getName(),
         volume.getTitle().getValue(),

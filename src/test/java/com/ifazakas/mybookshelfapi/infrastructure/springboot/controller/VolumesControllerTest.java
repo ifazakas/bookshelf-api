@@ -17,7 +17,7 @@ public class VolumesControllerTest extends ControllerTestBase {
   public void shouldAddAVolume() throws Exception {
     MockHttpServletRequestBuilder request = createPostRequest(
         VOLUMES_ENDPOINT,
-        getResourceAsString("addvolume/201-created.json")
+        getResourceAsString("httprequestbody/addvolume/201-created.json")
     );
     server()
         .perform(request)
@@ -32,7 +32,7 @@ public class VolumesControllerTest extends ControllerTestBase {
   public void badRequestWhenAuthorNameNotAlphabetic() throws Exception {
     MockHttpServletRequestBuilder request = createPostRequest(
         VOLUMES_ENDPOINT,
-        getResourceAsString("addvolume/400-author-name-not-alphabetic.json")
+        getResourceAsString("httprequestbody/addvolume/400-author-name-not-alphabetic.json")
     );
     server()
         .perform(request)
@@ -43,7 +43,7 @@ public class VolumesControllerTest extends ControllerTestBase {
   public void badRequestWhenAuthorNameTooLong() throws Exception {
     MockHttpServletRequestBuilder request = createPostRequest(
         VOLUMES_ENDPOINT,
-        getResourceAsString("addvolume/400-author-name-too-long.json")
+        getResourceAsString("httprequestbody/addvolume/400-author-name-too-long.json")
     );
     server()
         .perform(request)
@@ -54,7 +54,7 @@ public class VolumesControllerTest extends ControllerTestBase {
   public void badRequestWhenAuthorNameTooShort() throws Exception {
     MockHttpServletRequestBuilder request = createPostRequest(
         VOLUMES_ENDPOINT,
-        getResourceAsString("addvolume/400-author-name-too-short.json")
+        getResourceAsString("httprequestbody/addvolume/400-author-name-too-short.json")
     );
     server()
         .perform(request)
@@ -65,7 +65,7 @@ public class VolumesControllerTest extends ControllerTestBase {
   public void badRequestWhenPublicationYearInTheFuture() throws Exception {
     MockHttpServletRequestBuilder request = createPostRequest(
         VOLUMES_ENDPOINT,
-        getResourceAsString("addvolume/400-publication-year-in-the-future.json")
+        getResourceAsString("httprequestbody/addvolume/400-publication-year-in-the-future.json")
     );
     server()
         .perform(request)
@@ -76,7 +76,7 @@ public class VolumesControllerTest extends ControllerTestBase {
   public void badRequestWhenPublicationYearNegative() throws Exception {
     MockHttpServletRequestBuilder request = createPostRequest(
         VOLUMES_ENDPOINT,
-        getResourceAsString("addvolume/400-publication-year-negative.json")
+        getResourceAsString("httprequestbody/addvolume/400-publication-year-negative.json")
     );
     server()
         .perform(request)
@@ -87,7 +87,7 @@ public class VolumesControllerTest extends ControllerTestBase {
   public void badRequestWhenTitleNotAlphanumeric() throws Exception {
     MockHttpServletRequestBuilder request = createPostRequest(
         VOLUMES_ENDPOINT,
-        getResourceAsString("addvolume/400-title-not-alphanumeric.json")
+        getResourceAsString("httprequestbody/addvolume/400-title-not-alphanumeric.json")
     );
     server()
         .perform(request)
@@ -98,7 +98,7 @@ public class VolumesControllerTest extends ControllerTestBase {
   public void badRequestWhenTitleTooLong() throws Exception {
     MockHttpServletRequestBuilder request = createPostRequest(
         VOLUMES_ENDPOINT,
-        getResourceAsString("addvolume/400-title-too-long.json")
+        getResourceAsString("httprequestbody/addvolume/400-title-too-long.json")
     );
     server()
         .perform(request)
