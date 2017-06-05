@@ -9,11 +9,11 @@ public final class VolumeId {
     this.id = id;
   }
 
-  public static VolumeId createId() {
+  static VolumeId createId() {
     return new VolumeId(UUID.randomUUID());
   }
 
-  public static VolumeId wakeUp(final String uuidValue) {
+  static VolumeId wakeUp(final String uuidValue) {
     return new VolumeId(UUID.fromString(uuidValue));
   }
 

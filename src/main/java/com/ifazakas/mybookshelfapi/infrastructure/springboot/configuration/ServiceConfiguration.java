@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ServiceConfiguration {
   @Bean
-  public AddVolumeService addBookService(VolumeRepository volumeRepository) {
+  public AddVolumeService addBookService(final VolumeRepository volumeRepository) {
     return new AddVolumeService(volumeRepository);
   }
 }

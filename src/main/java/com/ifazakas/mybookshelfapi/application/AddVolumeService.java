@@ -7,9 +7,9 @@ import com.ifazakas.mybookshelfapi.domain.Volume;
 import com.ifazakas.mybookshelfapi.domain.VolumeRepository;
 
 public class AddVolumeService {
-  private VolumeRepository volumeRepository;
+  private final VolumeRepository volumeRepository;
 
-  public AddVolumeService(VolumeRepository volumeRepository) {
+  public AddVolumeService(final VolumeRepository volumeRepository) {
     this.volumeRepository = volumeRepository;
   }
 

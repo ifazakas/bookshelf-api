@@ -1,6 +1,6 @@
 package com.ifazakas.mybookshelfapi.infrastructure.springboot.controller;
 
-import com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.common.ControllerTestBase;
+import com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.common.IntegrationTestBase;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
@@ -8,7 +8,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class PingControllerTest extends ControllerTestBase {
+public class PingIntegrationTest extends IntegrationTestBase {
 
   @Test
   public void shouldPerformAPing() throws Exception {

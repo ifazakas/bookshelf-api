@@ -1,12 +1,6 @@
 package com.ifazakas.mybookshelfapi.infrastructure.jpa;
 
-import com.ifazakas.mybookshelfapi.domain.Volume;
-import com.ifazakas.mybookshelfapi.domain.VolumeRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public class JpaVolumeRepository implements VolumeRepository {
-
-  @Override
-  public void persist(Volume volume) {
-
-  }
+public interface JpaVolumeRepository extends JpaRepository<JpaVolume, Long> {
 }
