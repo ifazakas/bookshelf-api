@@ -24,16 +24,7 @@ public class JpaVolumeRepositoryService implements VolumeRepository {
         volume.getId().getValue(),
         volume.getAuthor().getName(),
         volume.getTitle().getValue(),
-        getPublicationYearIfPresent(volume)
+        volume.getPublicationYear().getValue()
     );
-  }
-
-  private Integer getPublicationYearIfPresent(final Volume volume) {
-    Integer publicationYear = null;
-
-    if (volume.getPublicationYear().isPresent()) {
-      publicationYear = volume.getPublicationYear().get().getValue();
-    }
-    return publicationYear;
   }
 }

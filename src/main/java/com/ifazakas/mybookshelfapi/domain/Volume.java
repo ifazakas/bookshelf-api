@@ -2,8 +2,6 @@ package com.ifazakas.mybookshelfapi.domain;
 
 import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentMissingException;
 
-import java.util.Optional;
-
 public class Volume {
   private final VolumeId id;
   private final Author author;
@@ -40,8 +38,8 @@ public class Volume {
     return title;
   }
 
-  public Optional<PublicationYear> getPublicationYear() {
-    return Optional.ofNullable(publicationYear);
+  public PublicationYear getPublicationYear() {
+    return publicationYear;
   }
 
   @Override

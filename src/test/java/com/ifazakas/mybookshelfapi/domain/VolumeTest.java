@@ -3,8 +3,6 @@ package com.ifazakas.mybookshelfapi.domain;
 import com.ifazakas.mybookshelfapi.domain.exceptions.ArgumentMissingException;
 import org.junit.Test;
 
-import java.util.Optional;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class VolumeTest {
@@ -25,8 +23,7 @@ public class VolumeTest {
     assertThat(aVolume.getId()).isNotNull();
     assertThat(aVolume.getAuthor()).isEqualTo(new Author(AUTHOR_OF_REFACTORING));
     assertThat(aVolume.getTitle()).isEqualTo(new Title(TITLE_OF_REFACTORING));
-    assertThat(aVolume.getPublicationYear().get()).isEqualTo(new PublicationYear(PUBLICATION_YEAR_OF_REFACTORING));
-
+    assertThat(aVolume.getPublicationYear()).isEqualTo(new PublicationYear(PUBLICATION_YEAR_OF_REFACTORING));
   }
 
   @Test(expected = ArgumentMissingException.class)
@@ -47,17 +44,4 @@ public class VolumeTest {
     );
   }
 
-  @Test
-  public void shouldCreateVolumeWithMissingPublicationYear() throws Exception {
-    Volume aVolume = new Volume(
-        new Author(AUTHOR_OF_REFACTORING),
-        new Title(TITLE_OF_REFACTORING),
-        null
-    );
-
-    assertThat(aVolume.getId()).isNotNull();
-    assertThat(aVolume.getAuthor()).isEqualTo(new Author(AUTHOR_OF_REFACTORING));
-    assertThat(aVolume.getTitle()).isEqualTo(new Title(TITLE_OF_REFACTORING));
-    assertThat(aVolume.getPublicationYear()).isEqualTo(Optional.empty());
-  }
 }
