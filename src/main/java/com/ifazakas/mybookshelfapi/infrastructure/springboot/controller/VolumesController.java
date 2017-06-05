@@ -2,8 +2,8 @@ package com.ifazakas.mybookshelfapi.infrastructure.springboot.controller;
 
 import com.ifazakas.mybookshelfapi.application.AddVolumeService;
 import com.ifazakas.mybookshelfapi.domain.Volume;
-import com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.httprequestbody.AddBookHttpRequestBody;
-import com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.httpresponsebody.AddBookHttpResponseBody;
+import com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.httprequestbody.AddVolumeHttpRequestBody;
+import com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.httpresponsebody.AddVolumeHttpResponseBody;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +22,7 @@ public class VolumesController implements VolumesControllerExceptionHandler {
   }
 
   @RequestMapping(value = "", method = RequestMethod.POST)
-  public ResponseEntity<AddBookHttpResponseBody> addVolume(@RequestBody final AddBookHttpRequestBody httpRequestBody) {
+  public ResponseEntity<AddVolumeHttpResponseBody> addVolume(@RequestBody final AddVolumeHttpRequestBody httpRequestBody) {
 
     Volume volume = addVolumeService.addVolume(
         httpRequestBody.getAuthor(),
@@ -31,7 +31,7 @@ public class VolumesController implements VolumesControllerExceptionHandler {
     );
 
     return ResponseEntity.status(HttpStatus.CREATED)
-        .body(AddBookHttpResponseBody.createFrom(volume));
+        .body(AddVolumeHttpResponseBody.createFrom(volume));
   }
 
 }

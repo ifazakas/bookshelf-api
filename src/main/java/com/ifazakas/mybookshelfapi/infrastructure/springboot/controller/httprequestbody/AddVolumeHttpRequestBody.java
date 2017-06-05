@@ -2,12 +2,12 @@ package com.ifazakas.mybookshelfapi.infrastructure.springboot.controller.httpreq
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class AddBookHttpRequestBody {
+public class AddVolumeHttpRequestBody {
   private final String author;
   private final String title;
   private final int publicationYear;
 
-  public AddBookHttpRequestBody(
+  public AddVolumeHttpRequestBody(
       @JsonProperty(value = "author", required = true) final String author,
       @JsonProperty(value = "title", required = true) final String title,
       @JsonProperty(value = "publication_year", required = true) final int publicationYear
