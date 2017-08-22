@@ -30,21 +30,25 @@ To run the tests and code analysis
    
 **POST**  /volumes
 
-```{
+```
+{
   "author": "Martin Fowler",
   "title": "Refactoring",
   "publication_year": 1999
-}```
+}
+```
 
 **Response:**  
 201 Created
 
-```{
+```
+{
   "volume_id": "0c70153e-3e27-11e7-a919-92ebcb67fe33"
   "author": "Martin Fowler",
   "title": "Refactoring",
   "publication_year": 1999
-}```
+}
+```
 
 400 Bad Request   
 Required parameter is missing or validation error.
